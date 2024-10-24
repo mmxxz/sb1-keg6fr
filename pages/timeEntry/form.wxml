@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="card">
+    <view class="form-header">
+      <text class="date">{{date}}</text>
+    </view>
+
+    <view 
+      class="project-entry"
+      wx:for="{{projectEntries}}"
+      wx:key="index"
+    >
+      <view class="entry-header">
+        <text class="entry-title">项目 {{index + 1}}</text>
+        <view 
+          class="btn-remove" 
+          wx:if="{{projectEntries.length > 1}}"
+          bindtap="removeProjectEntry"
+          data-index="{{index}}"
+        >
+          删除
+        </view>
+      </view>
+
+      <form-select
+        label="项目"
+        value="{{item.projectId}}"
+        options="{{projectOptions}}"
+        placeholder="请选择项目"
+        required="{{true}}"
+        bindchange="onProjectChange"
+        data-index="{{index}}"
+      />
+
+      <form-select
+        label="任务"
+        value="{{item.taskId}}"
+        options="{{taskOptions}}"
+        placeholder="请选择任务"
+        required="{{true}}"
+        bindchange="onTaskChange"
+        data-index="{{index}}"
+      />
+
+      <view class="hours-row">
+        <view class="hours-input">
+          <form-input
+            label="正常工时"
+            type="digit"
+            value="{{item.normalHours}}"
+            placeholder="请输入工时"
+            required="{{true}}"
+            bindchange="onHoursChange"
+            data-index="{{index}}"
+            data-type="normalHours"
+          />
+        </view>
+        <view class="hours-input">
+          <form-input
+            label="加班工时"
+            type="digit"
+            value="{{item.overtimeHours}}"
+            placeholder="请输入工时"
+            bindchange="onHoursChange"
+            data-index="{{index}}"
+            data-type="overtimeHours"
+          />
+        </view>
+      </view>
+
+      <form-input
+        label="工作内容"
+        value="{{item.description}}"
+        placeholder="请输入具体工作内容"
+        required="{{true}}"
+        bindchange="onDescriptionChange"
+        data-index="{{index}}"
+      />
+    </view>
+
+    <view class="form-footer">
+      <button class="btn-add" bindtap="addProjectEntry">添加项目</button>
+      <button class="btn-primary" bindtap="submitForm">提交</button>
+    </view>
+  </view>
+</view>

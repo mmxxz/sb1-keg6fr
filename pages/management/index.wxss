@@ -1,0 +1,64 @@
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  padding: 20rpx;
+}
+
+.menu-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.team-entries {
+  margin-top: 20rpx;
+}
+
+.team-entry {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid var(--border-color);
+}
+
+.team-entry:last-child {
+  border-bottom: none;
+}
+
+.entry-info {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.project {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.time {
+  font-weight: bold;
+  color: var(--primary-color);
+}

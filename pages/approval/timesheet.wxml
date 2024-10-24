@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="card">
+    <view class="timesheet-header">
+      <view class="employee-info">
+        <text class="name">{{timesheet.employeeName}}</text>
+        <text class="id">#{{timesheet.employeeId}}</text>
+      </view>
+      <view class="timesheet-status">{{timesheet.status}}</view>
+    </view>
+
+    <view class="info-section">
+      <view class="info-item">
+        <text class="label">日期</text>
+        <text class="value">{{timesheet.date}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目</text>
+        <text class="value">{{timesheet.projectName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">任务</text>
+        <text class="value">{{timesheet.taskName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">正常工时</text>
+        <text class="value">{{timesheet.normalHours}}小时</text>
+      </view>
+      <view class="info-item">
+        <text class="label">加班工时</text>
+        <text class="value">{{timesheet.overtimeHours}}小时</text>
+      </view>
+      <view class="info-item">
+        <text class="label">工作内容</text>
+        <text class="value">{{timesheet.description}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">提交时间</text>
+        <text class="value">{{timesheet.submitTime}}</text>
+      </view>
+    </view>
+
+    <view class="approval-actions">
+      <button class="btn-approve" bindtap="approve">批准</button>
+      <button class="btn-reject" bindtap="showRejectDialog">拒绝</button>
+    </view>
+  </view>
+</view>
+
+<view class="reject-dialog" wx:if="{{showRejectDialog}}">
+  <view class="dialog-mask" bindtap="hideRejectDialog"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">
+      <text class="dialog-title">拒绝原因</text>
+    </view>
+    <view class="dialog-body">
+      <textarea 
+        class="reject-reason" 
+        placeholder="请输入拒绝原因"
+        value="{{rejectReason}}"
+        bindinput="onRejectReasonInput"
+      ></textarea>
+    </view>
+    <view class="dialog-footer">
+      <button class="btn-cancel" bindtap="hideRejectDialog">取消</button>
+      <button class="btn-confirm" bindtap="reject">确定</button>
+    </view>
+  </view>
+</view>

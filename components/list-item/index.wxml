@@ -1,0 +1,9 @@
+<view class="list-item" bindtap="onClick">
+  <image wx:if="{{avatar}}" class="avatar" src="{{avatar}}" mode="aspectFill"></image>
+  <view class="content">
+    <view class="title">{{title}}</view>
+    <view wx:if="{{subtitle}}" class="subtitle">{{subtitle}}</view>
+  </view>
+  <view class="extra" wx:if="{{extra}}">{{extra}}</view>
+  <view class="arrow" wx:if="{{arrow}}"></view>
+</view>

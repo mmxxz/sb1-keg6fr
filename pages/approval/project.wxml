@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="card">
+    <view class="project-header">
+      <view class="project-title">
+        <text class="name">{{project.name}}</text>
+        <text class="id">#{{project.id}}</text>
+      </view>
+      <view class="project-status">{{project.status}}</view>
+    </view>
+
+    <view class="info-section">
+      <view class="info-item">
+        <text class="label">项目类型</text>
+        <text class="value">{{project.type}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目描述</text>
+        <text class="value">{{project.description}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目负责人</text>
+        <text class="value">{{project.leader}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">工时审批人</text>
+        <text class="value">{{project.approver}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">计划工时</text>
+        <text class="value">{{project.plannedHours}}小时</text>
+      </view>
+      <view class="info-item">
+        <text class="label">提交时间</text>
+        <text class="value">{{project.submitTime}}</text>
+      </view>
+    </view>
+
+    <view class="approval-actions">
+      <button class="btn-approve" bindtap="approve">批准</button>
+      <button class="btn-reject" bindtap="showRejectDialog">拒绝</button>
+    </view>
+  </view>
+</view>
+
+<view class="reject-dialog" wx:if="{{showRejectDialog}}">
+  <view class="dialog-mask" bindtap="hideRejectDialog"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">
+      <text class="dialog-title">拒绝原因</text>
+    </view>
+    <view class="dialog-body">
+      <textarea 
+        class="reject-reason" 
+        placeholder="请输入拒绝原因"
+        value="{{rejectReason}}"
+        bindinput="onRejectReasonInput"
+      ></textarea>
+    </view>
+    <view class="dialog-footer">
+      <button class="btn-cancel" bindtap="hideRejectDialog">取消</button>
+      <button class="btn-confirm" bindtap="reject">确定</button>
+    </view>
+  </view>
+</view>

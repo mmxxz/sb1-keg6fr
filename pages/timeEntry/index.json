@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "工时填报",
+  "usingComponents": {
+    "calendar": "/components/calendar/index"
+  }
+}

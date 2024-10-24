@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "创建项目",
+  "usingComponents": {
+    "form-input": "/components/form-input/index",
+    "form-select": "/components/form-select/index"
+  }
+}

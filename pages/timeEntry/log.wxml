@@ -1,0 +1,87 @@
+<view class="container">
+  <view class="filter-card">
+    <view class="filter-row">
+      <form-select
+        class="filter-item"
+        value="{{filters.department}}"
+        options="{{departments}}"
+        placeholder="选择部门"
+        bindchange="onDepartmentChange"
+      />
+      <form-select
+        class="filter-item"
+        value="{{filters.project}}"
+        options="{{projects}}"
+        placeholder="选择项目"
+        bindchange="onProjectChange"
+      />
+    </view>
+    <view class="filter-row">
+      <picker
+        class="filter-item"
+        mode="date"
+        value="{{filters.startDate}}"
+        bindchange="onStartDateChange"
+      >
+        <view class="picker {{filters.startDate ? '' : 'placeholder'}}">
+          {{filters.startDate || '开始日期'}}
+        </view>
+      </picker>
+      <picker
+        class="filter-item"
+        mode="date"
+        value="{{filters.endDate}}"
+        bindchange="onEndDateChange"
+      >
+        <view class="picker {{filters.endDate ? '' : 'placeholder'}}">
+          {{filters.endDate || '结束日期'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="logs-list">
+    <view 
+      class="log-card {{selectedLogs.includes(item.id) ? 'selected' : ''}}" 
+      wx:for="{{logs}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      catch:tap="onLogSelect"
+      catch:longpress="showLogDetail"
+    >
+      <view class="log-header">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="employee-info">
+          <text class="name">{{item.employeeName}}</text>
+          <text class="department">{{item.department}}</text>
+        </view>
+        <text class="total-hours">{{item.totalHours}}h</text>
+      </view>
+      <view class="log-content">
+        <view class="log-item">
+          <text class="label">日期：</text>
+          <text class="value">{{item.date}}</text>
+        </view>
+        <view class="log-item">
+          <text class="label">项目：</text>
+          <text class="value">{{item.project}}</text>
+        </view>
+        <view class="log-item">
+          <text class="label">工时：</text>
+          <text class="value">
+            {{item.normalHours}}h + {{item.overtimeHours}}h加班
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="selection-info" wx:if="{{selectedLogs.length > 0}}">
+      已选择 {{selectedLogs.length}} 条记录
+    </view>
+    <button class="btn-export" bindtap="exportLogs">
+      {{selectedLogs.length > 0 ? '导出所选记录' : '导出全部记录'}}
+    </button>
+  </view>
+</view>

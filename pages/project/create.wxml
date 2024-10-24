@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="card">
+    <form-input
+      label="项目ID"
+      value="{{formData.id}}"
+      placeholder="请输入项目ID"
+      required="{{true}}"
+      bindchange="onIdChange"
+    />
+
+    <form-input
+      label="项目名称"
+      value="{{formData.name}}"
+      placeholder="请输入项目名称"
+      required="{{true}}"
+      bindchange="onNameChange"
+    />
+
+    <form-select
+      label="项目类型"
+      value="{{formData.type}}"
+      options="{{projectTypes}}"
+      placeholder="请选择项目类型"
+      required="{{true}}"
+      bindchange="onTypeChange"
+    />
+
+    <form-input
+      label="项目描述"
+      value="{{formData.description}}"
+      placeholder="请输入项目描述"
+      required="{{true}}"
+      bindchange="onDescriptionChange"
+    />
+
+    <form-input
+      label="项目负责人"
+      value="{{formData.leader}}"
+      placeholder="请输入负责人ID"
+      required="{{true}}"
+      bindchange="onLeaderChange"
+    />
+
+    <form-input
+      label="工时审批人"
+      value="{{formData.approver}}"
+      placeholder="请输入审批人ID"
+      required="{{true}}"
+      bindchange="onApproverChange"
+    />
+
+    <form-input
+      label="计划工时"
+      type="number"
+      value="{{formData.plannedHours}}"
+      placeholder="请输入计划工时(小时)"
+      required="{{true}}"
+      bindchange="onPlannedHoursChange"
+    />
+
+    <view class="form-footer">
+      <button class="btn-primary" bindtap="submitForm">创建项目</button>
+    </view>
+  </view>
+</view>

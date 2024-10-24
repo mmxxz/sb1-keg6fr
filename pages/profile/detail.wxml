@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="header">
+    <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+    <text class="name">{{userInfo.name}}</text>
+    <text class="id">{{userInfo.id}}</text>
+  </view>
+
+  <view class="card">
+    <view class="section">
+      <view class="section-title">基本信息</view>
+      <view class="info-item">
+        <text class="label">部门</text>
+        <text class="value">{{userInfo.department}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">职位</text>
+        <text class="value">{{userInfo.position}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">入职日期</text>
+        <text class="value">{{userInfo.joinDate}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">工作年限</text>
+        <text class="value">{{userInfo.workYears}}年</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">联系方式</view>
+      <view class="info-item clickable" bindtap="makePhoneCall">
+        <text class="label">联系电话</text>
+        <view class="value-action">
+          <text class="value">{{userInfo.phone}}</text>
+          <text class="action">拨打</text>
+        </view>
+      </view>
+      <view class="info-item clickable" bindtap="copyEmail">
+        <text class="label">邮箱</text>
+        <view class="value-action">
+          <text class="value">{{userInfo.email}}</text>
+          <text class="action">复制</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">上级信息</view>
+      <view class="info-item">
+        <text class="label">直属上级</text>
+        <text class="value">{{userInfo.supervisor}}</text>
+      </view>
+    </view>
+  </view>
+</view>

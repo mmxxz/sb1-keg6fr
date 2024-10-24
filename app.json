@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/timeEntry/index",
+    "pages/report/index",
+    "pages/management/index",
+    "pages/profile/index",
+    "pages/timeEntry/form",
+    "pages/project/create",
+    "pages/project/detail",
+    "pages/approval/index",
+    "pages/approval/project",
+    "pages/approval/timesheet",
+    "pages/team/index",
+    "pages/team/members"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#07C160",
+    "navigationBarTitleText": "工时管理系统",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#07C160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/timeEntry/index",
+        "text": "工时",
+        "iconPath": "assets/icons/time.png",
+        "selectedIconPath": "assets/icons/time-active.png"
+      },
+      {
+        "pagePath": "pages/report/index",
+        "text": "报告",
+        "iconPath": "assets/icons/report.png",
+        "selectedIconPath": "assets/icons/report-active.png"
+      },
+      {
+        "pagePath": "pages/management/index",
+        "text": "管理",
+        "iconPath": "assets/icons/management.png",
+        "selectedIconPath": "assets/icons/management-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  }
+}

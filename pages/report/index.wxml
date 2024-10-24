@@ -1,0 +1,93 @@
+<view class="container">
+  <view class="filter-card">
+    <view class="filter-row">
+      <picker class="filter-item" mode="selector" range="{{projects}}" bindchange="onFilterChange" data-type="project">
+        <view class="picker">{{filters.project || '选择项目'}}</view>
+      </picker>
+      <picker class="filter-item" mode="selector" range="{{departments}}" bindchange="onFilterChange" data-type="department">
+        <view class="picker">{{filters.department || '选择部门'}}</view>
+      </picker>
+    </view>
+    <view class="filter-row">
+      <picker class="filter-item" mode="date" bindchange="onFilterChange" data-type="startDate">
+        <view class="picker">{{filters.startDate || '开始日期'}}</view>
+      </picker>
+      <picker class="filter-item" mode="date" bindchange="onFilterChange" data-type="endDate">
+        <view class="picker">{{filters.endDate || '结束日期'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">每日工时统计</view>
+    <view class="chart-container">
+      <ec-canvas id="workHoursChart" canvas-id="workHoursChart" ec="{{ workHoursEc }}"></ec-canvas>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">工时分布</view>
+    <view class="chart-container">
+      <ec-canvas id="abnormalHoursChart" canvas-id="abnormalHoursChart" ec="{{ abnormalHoursEc }}"></ec-canvas>
+    </view>
+    <view class="summary-grid">
+      <view class="summary-item">
+        <text class="label">总工时</text>
+        <text class="value">{{summary.totalHours}}h</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">正常工时</text>
+        <text class="value">{{summary.normalHours}}h</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">加班工时</text>
+        <text class="value">{{summary.overtimeHours}}h</text>
+      </view>
+      <view class="summary-item">
+        <text class="label">异常工时</text>
+        <text class="value warning">{{summary.abnormalHours}}h</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">异常工时项目</view>
+    <view class="abnormal-list">
+      <view 
+        class="abnormal-item {{item.status}}" 
+        wx:for="{{abnormalProjects}}" 
+        wx:key="id"
+        bindtap="showAbnormalDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="project-info">
+          <text class="project-name">{{item.name}}</text>
+          <text class="project-id">#{{item.id}}</text>
+        </view>
+        <view class="hours-info">
+          <view class="hours-item">
+            <text class="label">计划工时</text>
+            <text class="value">{{item.plannedHours}}h</text>
+          </view>
+          <view class="hours-item">
+            <text class="label">实际工时</text>
+            <text class="value">{{item.actualHours}}h</text>
+          </view>
+          <view class="hours-item">
+            <text class="label">差异</text>
+            <text class="value {{item.difference > 0 ? 'warning' : ''}}">
+              {{item.difference > 0 ? '+' : ''}}{{item.difference}}h
+            </text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">月度工时分析</view>
+    <view class="chart-container">
+      <ec-canvas id="monthlyWorkHoursChart" canvas-id="monthlyWorkHoursChart" ec="{{ monthlyWorkHoursEc }}"></ec-canvas>
+    </view>
+  </view>
+</view>

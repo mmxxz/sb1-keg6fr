@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "工时日志",
+  "usingComponents": {
+    "list-item": "/components/list-item/index",
+    "form-select": "/components/form-select/index"
+  }
+}

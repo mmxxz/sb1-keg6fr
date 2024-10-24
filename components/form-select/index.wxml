@@ -1,0 +1,21 @@
+<view class="form-item">
+  <view class="label">
+    {{label}}
+    <text class="required" wx:if="{{required}}">*</text>
+  </view>
+  <picker
+    bindchange="onChange"
+    value="{{value}}"
+    range="{{options}}"
+    range-key="label"
+  >
+    <view class="picker">
+      <block wx:if="{{value}}">
+        {{options[value].label}}
+      </block>
+      <block wx:else>
+        <text class="placeholder">{{placeholder}}</text>
+      </block>
+    </view>
+  </picker>
+</view>

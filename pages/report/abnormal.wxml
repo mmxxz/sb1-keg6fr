@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="card">
+    <view class="project-header">
+      <view class="project-title">
+        <text class="name">{{project.name}}</text>
+        <text class="id">#{{project.id}}</text>
+      </view>
+      <view class="project-status {{project.difference > 0 ? 'overtime' : 'undertime'}}">
+        {{project.difference > 0 ? '超出' : '未达到'}}计划工时
+      </view>
+    </view>
+
+    <view class="hours-summary">
+      <view class="hours-item">
+        <text class="label">计划工时</text>
+        <text class="value">{{project.plannedHours}}h</text>
+      </view>
+      <view class="hours-item">
+        <text class="label">实际工时</text>
+        <text class="value">{{project.actualHours}}h</text>
+      </view>
+      <view class="hours-item">
+        <text class="label">差异</text>
+        <text class="value {{project.difference > 0 ? 'warning' : ''}}">
+          {{project.difference > 0 ? '+' : ''}}{{project.difference}}h
+        </text>
+      </view>
+    </view>
+
+    <view class="project-info">
+      <view class="info-item">
+        <text class="label">项目类型</text>
+        <text class="value">{{project.type}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目描述</text>
+        <text class="value">{{project.description}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目负责人</text>
+        <text class="value">{{project.leader}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">工时审批人</text>
+        <text class="value">{{project.approver}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">异常记录</view>
+    <view class="records-list">
+      <view class="record-item" wx:for="{{abnormalRecords}}" wx:key="date">
+        <view class="record-header">
+          <text class="date">{{item.date}}</text>
+          <text class="employee">{{item.employee}}</text>
+        </view>
+        <view class="record-hours">
+          <text class="planned">计划：{{item.plannedHours}}h</text>
+          <text class="actual">实际：{{item.actualHours}}h</text>
+          <text class="difference warning">
+            差异：{{item.actualHours - item.plannedHours > 0 ? '+' : ''}}{{item.actualHours - item.plannedHours}}h
+          </text>
+        </view>
+        <view class="record-reason">
+          <text class="label">原因：</text>
+          <text class="value">{{item.reason}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

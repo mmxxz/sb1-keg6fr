@@ -1,0 +1,123 @@
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.position {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 4rpx solid #999;
+  border-right: 4rpx solid #999;
+  transform: rotate(45deg);
+}
+
+.reminder-card {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.reminder-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.reminder-header .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-left: 16rpx;
+}
+
+.reminder-content {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.btn-fill {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  border: none;
+}
+
+.info-card {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item .label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-item .value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.btn-logout {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  border: none;
+  margin-top: 60rpx;
+}
+
+.btn-logout::after {
+  border: none;
+}

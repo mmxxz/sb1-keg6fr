@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="profile-card" bindtap="showUserDetail">
+    <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+    <view class="info">
+      <text class="name">{{userInfo.name}}</text>
+      <text class="position">{{userInfo.department}} | {{userInfo.position}}</text>
+    </view>
+    <view class="arrow"></view>
+  </view>
+
+  <view class="reminder-card" wx:if="{{needTimeEntry}}">
+    <view class="reminder-header">
+      <icon type="warn" size="20" color="#ff4d4f"></icon>
+      <text class="title">工时填报提醒</text>
+    </view>
+    <view class="reminder-content">
+      您今天还没有填写工时，请及时填报。
+    </view>
+    <button class="btn-fill" bindtap="goToTimeEntry">立即填报</button>
+  </view>
+
+  <view class="reminder-card" wx:else>
+    <view class="reminder-header">
+      <icon type="success" size="20" color="#07C160"></icon>
+      <text class="title">今日工时</text>
+    </view>
+    <view class="reminder-content">
+      您今天已填报 {{todayHours}} 小时工时。
+    </view>
+  </view>
+
+  <view class="info-card">
+    <view class="info-item">
+      <text class="label">员工ID</text>
+      <text class="value">{{userInfo.id}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">部门</text>
+      <text class="value">{{userInfo.department}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">职位</text>
+      <text class="value">{{userInfo.position}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">入职日期</text>
+      <text class="value">{{userInfo.joinDate}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">联系电话</text>
+      <text class="value">{{userInfo.phone}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">邮箱</text>
+      <text class="value">{{userInfo.email}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">直属上级</text>
+      <text class="value">{{userInfo.supervisor}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">工作年限</text>
+      <text class="value">{{userInfo.workYears}}年</text>
+    </view>
+  </view>
+
+  <button class="btn-logout" bindtap="logout">退出登录</button>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "团队管理",
+  "usingComponents": {
+    "list-item": "/components/list-item/index"
+  }
+}

@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="card">
+    <calendar bind:dayClick="onDayClick" />
+    <view class="time-entries">
+      <block wx:for="{{dayEntries}}" wx:key="id">
+        <view class="list-item">
+          <view class="project-info">
+            <text class="project-name">{{item.projectName}}</text>
+            <text class="task-name">{{item.taskName}}</text>
+          </view>
+          <view class="hours-info">
+            <text>{{item.normalHours}}h</text>
+            <text class="overtime">+{{item.overtimeHours}}h</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <button class="btn-primary" bindtap="onAddTimeEntry">填报工时</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">本周工时</view>
+    <view class="weekly-summary">
+      <block wx:for="{{weekSummary}}" wx:key="date">
+        <view class="list-item" bindtap="showDayDetail" data-date="{{item.date}}">
+          <view class="day-info">
+            <text class="day">{{item.dayName}}</text>
+            <text class="date">{{item.date}}</text>
+          </view>
+          <view class="hours-total">
+            <text>{{item.totalHours}}h</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,97 @@
+<view class="container">
+  <view class="tabs">
+    <view 
+      class="tab {{activeTab === 'project' ? 'active' : ''}}" 
+      data-tab="project" 
+      bindtap="switchTab"
+    >
+      项目审批
+    </view>
+    <view 
+      class="tab {{activeTab === 'timesheet' ? 'active' : ''}}" 
+      data-tab="timesheet" 
+      bindtap="switchTab"
+    >
+      工时审批
+    </view>
+  </view>
+
+  <view class="approval-list" wx:if="{{activeTab === 'project'}}">
+    <view 
+      class="approval-card {{selectedApprovals.includes(item.id) ? 'selected' : ''}}" 
+      wx:for="{{projectApprovals}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      catch:tap="onApprovalSelect"
+      catch:longpress="showApprovalDetail"
+    >
+      <view class="approval-header">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="info">
+          <text class="name">{{item.leader}}</text>
+          <text class="project">{{item.name}}</text>
+        </view>
+        <text class="status">{{item.status}}</text>
+      </view>
+      <view class="approval-content">
+        <text class="type">{{item.type}}</text>
+        <text class="time">提交时间：{{item.submitTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="approval-list" wx:if="{{activeTab === 'timesheet'}}">
+    <view 
+      class="approval-card {{selectedApprovals.includes(item.id) ? 'selected' : ''}}" 
+      wx:for="{{timesheetApprovals}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      catch:tap="onApprovalSelect"
+      catch:longpress="showApprovalDetail"
+    >
+      <view class="approval-header">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="info">
+          <text class="name">{{item.employeeName}}</text>
+          <text class="project">{{item.projectName}}</text>
+        </view>
+        <text class="hours">{{item.totalHours}}h</text>
+      </view>
+      <view class="approval-content">
+        <text class="date">{{item.date}}</text>
+        <text class="status">{{item.status}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer" wx:if="{{selectedApprovals.length > 0}}">
+    <view class="selection-info">
+      已选择 {{selectedApprovals.length}} 条记录
+    </view>
+    <view class="action-buttons">
+      <button class="btn-approve" bindtap="batchApprove">批准</button>
+      <button class="btn-reject" bindtap="showRejectDialog">拒绝</button>
+    </view>
+  </view>
+</view>
+
+<view class="reject-dialog" wx:if="{{showRejectDialog}}">
+  <view class="dialog-mask" bindtap="hideRejectDialog"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">
+      <text class="dialog-title">拒绝原因</text>
+    </view>
+    <view class="dialog-body">
+      <textarea 
+        class="reject-reason" 
+        placeholder="请输入拒绝原因"
+        value="{{rejectReason}}"
+        bindinput="onRejectReasonInput"
+      ></textarea>
+    </view>
+    <view class="dialog-footer">
+      <button class="btn-cancel" bindtap="hideRejectDialog">取消</button>
+      <button class="btn-confirm" bindtap="batchReject">确定</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<view class="form-item">
+  <view class="label">
+    {{label}}
+    <text class="required" wx:if="{{required}}">*</text>
+  </view>
+  <input
+    class="input {{disabled ? 'disabled' : ''}}"
+    type="{{type}}"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    disabled="{{disabled}}"
+    bindinput="onInput"
+  />
+</view>

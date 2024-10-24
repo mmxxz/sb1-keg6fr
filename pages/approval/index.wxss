@@ -1,0 +1,38 @@
+.tabs {
+  display: flex;
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 4rpx;
+  background: var(--primary-color);
+  border-radius: 2rpx;
+}
+
+.approval-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}

@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="menu-grid">
+    <view 
+      class="menu-item" 
+      wx:for="{{menuItems}}" 
+      wx:key="text"
+      data-url="{{item.url}}"
+      bindtap="navigateTo"
+    >
+      <image class="menu-icon" src="/assets/icons/{{item.icon}}.png" mode="aspectFit"></image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">项目组成员工时记录</view>
+    <view class="team-entries">
+      <view class="team-entry" wx:for="{{teamTimeEntries}}" wx:key="id">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="entry-info">
+          <text class="name">{{item.name}}</text>
+          <text class="project">{{item.project}}</text>
+        </view>
+        <view class="time">
+          <text>{{item.time}}h</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

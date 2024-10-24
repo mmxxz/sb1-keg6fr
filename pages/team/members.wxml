@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="team-header">
+    <view class="team-info">
+      <text class="team-name">{{team.name}}</text>
+      <text class="team-description">{{team.description}}</text>
+    </view>
+    <button class="btn-add" bindtap="addMember">添加成员</button>
+  </view>
+
+  <view class="members-list">
+    <view 
+      class="member-card" 
+      wx:for="{{members}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="showMemberActions"
+    >
+      <image class="member-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="member-info">
+        <view class="member-name-row">
+          <text class="member-name">{{item.name}}</text>
+          <text class="member-role">{{item.role}}</text>
+        </view>
+        <text class="member-title">{{item.title}}</text>
+      </view>
+      <view class="member-arrow"></view>
+    </view>
+  </view>
+</view>
+
+<view class="action-sheet" wx:if="{{showActionSheet}}">
+  <view class="action-sheet-mask" bindtap="hideActionSheet"></view>
+  <view class="action-sheet-content">
+    <view class="action-header">
+      <image class="action-avatar" src="{{selectedMember.avatar}}" mode="aspectFill"></image>
+      <text class="action-name">{{selectedMember.name}}</text>
+    </view>
+    <view class="action-list">
+      <view class="action-item" data-action="view" bindtap="handleAction">
+        查看详情
+      </view>
+      <view 
+        class="action-item" 
+        data-action="setLeader" 
+        bindtap="handleAction"
+        wx:if="{{!selectedMember.isLeader}}"
+      >
+        设为负责人
+      </view>
+      <view 
+        class="action-item danger" 
+        data-action="remove" 
+        bindtap="handleAction"
+        wx:if="{{!selectedMember.isLeader}}"
+      >
+        移除成员
+      </view>
+    </view>
+    <view class="action-cancel" bindtap="hideActionSheet">取消</view>
+  </view>
+</view>

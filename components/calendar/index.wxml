@@ -1,0 +1,48 @@
+<view class="calendar">
+  <view class="calendar-header">
+    <text>{{currentYear}}年{{currentMonth}}月</text>
+  </view>
+  
+  <view class="calendar-weeks">
+    <view class="week-day" wx:for="{{['日', '一', '二', '三', '四', '五', '六']}}" wx:key="*this">
+      {{item}}
+    </view>
+  </view>
+  
+  <view class="calendar-days">
+    <view 
+      class="day {{item.isToday ? 'today' : ''}} {{item.disabled ? 'disabled' : ''}} {{item.hasEntry ? 'has-entry' : ''}} {{item.isInvalid ? 'invalid' : ''}}"
+      wx:for="{{days}}"
+      wx:key="date"
+      data-date="{{item.date}}"
+      data-disabled="{{item.disabled}}"
+      data-has-entry="{{item.hasEntry}}"
+      bindtap="onDayClick"
+      bindlongpress="onDayLongPress"
+    >
+      {{item.day}}
+      <view class="day-marker {{item.hasEntry ? 'has-entry' : 'no-entry'}}" wx:if="{{item.day && !item.disabled}}"></view>
+    </view>
+  </view>
+</view>
+
+<view class="copy-dialog" wx:if="{{showCopyDialog}}">
+  <view class="dialog-mask" bindtap="onCopyCancel"></view>
+  <view class="dialog-content">
+    <view class="dialog-header">复制工时记录</view>
+    <view class="dialog-body">
+      <view class="date-range">
+        <picker mode="date" bindchange="onStartDateChange">
+          <view class="date-input">开始日期</view>
+        </picker>
+        <picker mode="date" bindchange="onEndDateChange">
+          <view class="date-input">结束日期</view>
+        </picker>
+      </view>
+    </view>
+    <view class="dialog-footer">
+      <button class="btn-cancel" bindtap="onCopyCancel">取消</button>
+      <button class="btn-confirm" bindtap="onCopyConfirm">确定</button>
+    </view>
+  </view>
+</view>

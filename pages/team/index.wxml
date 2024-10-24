@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="statistics-card">
+    <view class="stat-item">
+      <text class="stat-value">{{statistics.totalMembers}}</text>
+      <text class="stat-label">团队成员</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{statistics.activeProjects}}</text>
+      <text class="stat-label">进行中项目</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{statistics.totalHours}}h</text>
+      <text class="stat-label">本月工时</text>
+    </view>
+  </view>
+
+  <view class="section-header">
+    <text class="section-title">我的团队</text>
+    <button class="btn-create" bindtap="createTeam">创建团队</button>
+  </view>
+
+  <view class="teams-list">
+    <view 
+      class="team-card" 
+      wx:for="{{teams}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="showTeamMembers"
+    >
+      <image class="team-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+      <view class="team-info">
+        <text class="team-name">{{item.name}}</text>
+        <text class="team-leader">负责人：{{item.leader}}</text>
+        <view class="team-stats">
+          <text class="stat">{{item.memberCount}}名成员</text>
+          <text class="stat">{{item.activeProjects}}个进行中项目</text>
+        </view>
+      </view>
+      <view class="team-arrow"></view>
+    </view>
+  </view>
+</view>

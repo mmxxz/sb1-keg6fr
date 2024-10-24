@@ -1,0 +1,150 @@
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.project-title {
+  flex: 1;
+}
+
+.project-title .name {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.project-title .id {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.project-status {
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+}
+
+.project-status.overtime {
+  background: rgba(255, 77, 79, 0.1);
+  color: #ff4d4f;
+}
+
+.project-status.undertime {
+  background: rgba(250, 173, 20, 0.1);
+  color: #faad14;
+}
+
+.hours-summary {
+  display: flex;
+  justify-content: space-between;
+  background: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.hours-item {
+  text-align: center;
+}
+
+.hours-item .label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.hours-item .value {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.hours-item .warning {
+  color: #ff4d4f;
+}
+
+.project-info {
+  margin-top: 30rpx;
+}
+
+.info-item {
+  margin-bottom: 20rpx;
+}
+
+.info-item .label {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.info-item .value {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.records-list {
+  margin-top: 20rpx;
+}
+
+.record-item {
+  background: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.record-item:last-child {
+  margin-bottom: 0;
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.record-header .date {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.record-header .employee {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.record-hours {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.record-hours text {
+  font-size: 28rpx;
+}
+
+.record-hours .warning {
+  color: #ff4d4f;
+}
+
+.record-reason {
+  font-size: 28rpx;
+}
+
+.record-reason .label {
+  color: #666;
+}
+
+.record-reason .value {
+  color: #333;
+}

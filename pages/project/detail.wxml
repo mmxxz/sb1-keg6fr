@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="card">
+    <view class="project-header">
+      <view class="project-title">
+        <text class="name">{{project.name}}</text>
+        <text class="id">#{{project.id}}</text>
+      </view>
+      <view class="project-status {{project.status === '进行中' ? 'status-active' : ''}}">
+        {{project.status}}
+      </view>
+    </view>
+
+    <view class="info-section">
+      <view class="info-item">
+        <text class="label">项目类型</text>
+        <text class="value">{{project.type}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目描述</text>
+        <text class="value">{{project.description}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">项目负责人</text>
+        <text class="value">{{project.leader}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">工时审批人</text>
+        <text class="value">{{project.approver}}</text>
+      </view>
+      <view class="info-item">
+        <text class="label">计划工时</text>
+        <text class="value">{{project.plannedHours}}小时</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">项目成员</view>
+    <view class="member-list">
+      <list-item
+        wx:for="{{teamMembers}}"
+        wx:key="id"
+        avatar="{{item.avatar}}"
+        title="{{item.name}}"
+        subtitle="{{item.role}}"
+        data-id="{{item.id}}"
+        bindtap="showMemberDetail"
+      />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">工时记录</view>
+    <view class="time-entries">
+      <list-item
+        wx:for="{{timeEntries}}"
+        wx:key="id"
+        title="{{item.date}}"
+        subtitle="{{item.description}}"
+        extra="{{item.normalHours + item.overtimeHours}}h"
+        data-id="{{item.id}}"
+        bindtap="showTimeEntryDetail"
+      />
+    </view>
+  </view>
+</view>

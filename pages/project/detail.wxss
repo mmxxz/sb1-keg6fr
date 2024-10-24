@@ -1,0 +1,65 @@
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.project-title {
+  flex: 1;
+}
+
+.project-title .name {
+  font-size: 36rpx;
+  font-weight: bold;
+  display: block;
+}
+
+.project-title .id {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.project-status {
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  background: #f5f5f5;
+  color: #666;
+}
+
+.project-status.status-active {
+  background: rgba(7, 193, 96, 0.1);
+  color: var(--primary-color);
+}
+
+.info-section {
+  margin-top: 30rpx;
+}
+
+.info-item {
+  margin-bottom: 20rpx;
+}
+
+.info-item .label {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.info-item .value {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.member-list, .time-entries {
+  margin-top: 20rpx;
+}

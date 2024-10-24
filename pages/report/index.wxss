@@ -1,0 +1,146 @@
+.filter-card {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.filter-row {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.filter-item {
+  flex: 1;
+}
+
+.picker {
+  height: 88rpx;
+  background: #fff;
+  border: 2rpx solid #e8e8e8;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.card {
+  background: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400rpx;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+.summary-item {
+  background: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.summary-item .label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.summary-item .value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.summary-item .warning {
+  color: #ff4d4f;
+}
+
+.abnormal-list {
+  margin-top: 20rpx;
+}
+
+.abnormal-item {
+  background: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.abnormal-item:last-child {
+  margin-bottom: 0;
+}
+
+.abnormal-item.overtime {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.abnormal-item.undertime {
+  background: rgba(250, 173, 20, 0.1);
+}
+
+.project-info {
+  margin-bottom: 16rpx;
+}
+
+.project-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 12rpx;
+}
+
+.project-id {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.hours-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hours-item {
+  text-align: center;
+}
+
+.hours-item .label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 4rpx;
+  display: block;
+}
+
+.hours-item .value {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.hours-item .warning {
+  color: #ff4d4f;
+}
